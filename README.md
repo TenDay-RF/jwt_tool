@@ -58,26 +58,21 @@ python3 jwt_tool_enhanced.py -h
 
 ## Examples
 
-Decode a token:
 ```bash
-python3 jwt_tool_enhanced.py <JWT>
+python3 jwt_tool_enhanced.py --delegate <JWT>
 ```
-
-Tamper with token claims:
 ```bash
-python3 jwt_tool_enhanced.py <JWT> -T
+python3 jwt_tool_enhanced.py --rfc8725-audit '<JWT>'
 ```
-
-Run a selected validation or analysis mode:
 ```bash
-python3 jwt_tool_enhanced.py <JWT> -M pb
+python3 jwt_tool_enhanced.py --oidc-hints '<JWT>' --profile profiles/api-access-token.yaml
 ```
-
-Verify with a public key:
 ```bash
-python3 jwt_tool_enhanced.py <JWT> -V -pk public.pem
+python3 jwt_tool_enhanced.py --jwe-audit '<JWE>' --report-base jwe_test
 ```
-
+```bash
+python3 jwt_tool_enhanced.py --psychic-indicator '<ES256 JWT>'
+```
 ## Notes
 
 The tool is intended for authorized security testing, research, and controlled practice only.
