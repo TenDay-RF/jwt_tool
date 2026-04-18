@@ -1,0 +1,5 @@
+Patch summary:
+- Patched optional ratelimit import in jwt_tool.py
+- Added enhanced help notice to original help path
+- Added jwt_tool_enhanced.py sidecar
+- Added profiles, docker-lab, docs, tests, CI workflow

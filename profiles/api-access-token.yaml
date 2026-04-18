@@ -1,0 +1,12 @@
+name: api-access-token
+allowed_algs:
+  - RS256
+  - PS256
+required_claims:
+  - exp
+  - iss
+  - aud
+require_typ: at+jwt
+issuer: https://issuer.example.com
+audience: https://api.example.com
+expect_access_token: true

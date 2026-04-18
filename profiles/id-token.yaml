@@ -1,0 +1,12 @@
+name: id-token
+allowed_algs:
+  - RS256
+required_claims:
+  - exp
+  - iss
+  - aud
+  - nonce
+require_typ: JWT
+issuer: https://issuer.example.com
+audience: my-client-id
+expect_access_token: false

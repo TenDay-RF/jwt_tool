@@ -23,7 +23,18 @@ from datetime import datetime
 import configparser
 from http.cookies import SimpleCookie
 from collections import OrderedDict
-from ratelimit import limits, RateLimitException, sleep_and_retry
+try:
+    from ratelimit import limits, RateLimitException, sleep_and_retry
+except ImportError:
+    class RateLimitException(Exception):
+        pass
+    def limits(*args, **kwargs):
+        def deco(fn):
+            return fn
+        return deco
+    def sleep_and_retry(fn):
+        return fn
+
 
 try:
     from Cryptodome.Signature import PKCS1_v1_5, DSS, pss
@@ -2221,3 +2232,12 @@ if __name__ == '__main__':
         runScanning()
     runActions()
     exit(1)
+
+
+# Enhanced help notice
+if any(x in sys.argv for x in ['-h','--help']):
+    print('\nEnhanced defensive modes available via jwt_tool_enhanced.py:')
+    print('  --rfc8725-audit <token> [--profile <file>] [--report-base <name>]')
+    print('  --jwe-audit <token> [--report-base <name>]')
+    print('  --oidc-hints <token> [--profile <file>] [--report-base <name>]')
+    print('  --psychic-indicator <token> [--report-base <name>]')

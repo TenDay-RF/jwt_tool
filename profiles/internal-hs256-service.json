@@ -1,0 +1,7 @@
+{
+  "name": "internal-hs256-service",
+  "allowed_algs": ["HS256"],
+  "required_claims": ["exp", "iss", "aud"],
+  "issuer": "internal-auth",
+  "audience": "internal-api"
+}
