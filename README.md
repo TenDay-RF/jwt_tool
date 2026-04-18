@@ -38,7 +38,7 @@ If you use Docker, run the tool with the provided image and mount your working d
 
 ### Manual install
 ```bash
-git clone [<repo-url>](https://github.com/TenDay-RF/jwt_tool.git)
+git clone https://github.com/TenDay-RF/jwt_tool.git
 python3 -m pip install -r requirements.txt
 ```
 
